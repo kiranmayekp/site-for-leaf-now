@@ -1,0 +1,232 @@
+<html>
+
+<head>
+    <title> REGISTER </title>
+
+    <style>
+        body {
+            background-image: url("image3.jpg");
+            background-repeat: no-repeat;
+            background-size: 150pc;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <form>
+        <center>
+            <div class="background">
+                <div class="transbox">
+                    <br></br>
+                    <label> <center> <h1> REGISTER <h1> </center> </label>
+                    <table align="center" cellpadding="3">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <font size="+3">First name:</font>
+                            </td>
+                            <td>
+                                <font size="+3"><input type="text" placeholder="first name" Id="username" name="firstname" style="height:30px;width:200px"></font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <font size="+3">Last name:</font>
+                            </td>
+                            <td>
+                                <font size="+3"><input type="text" placeholder="last name" Id="lastname" name="lastname" style="height:30px;width:200px"></font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <font size="+3">Phone number:</font>
+                            </td>
+                            <td>
+                                <font size="+3"><input type="number" placeholder="Phone.no" Id="PhoneNumber" name="number" maxlength="10" style="height:30px;width:200px"></font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <font size="+3">E-mail:</font>
+                            </td>
+                            <td>
+                                <font size="+3"><input type="text" placeholder="E-mail" Id="mail" name="e-mail" style="height:30px;width:200px"></font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <font size="+3"> Password:</font>
+                            </td>
+                            <td>
+                                <font size="+3"><input type="password" placeholder="password" Id="password" name="pass1" size="40" maxlength="10" style="height:30px;width:200px"></font>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>
+                                <font size="+3">Confirm password:</font>
+                            </td>
+                            <td>
+                                <font size="+3"><input type="password" placeholder="confirmation" Id="confirm_password" name="confirmation" style="height:30px;width:200px"></font>
+                            </td>
+                        </tr>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <font size="+3">Gender:</font>
+                            </td>
+                            <td>
+                                <font size="+2"><input type="radio" Id="male" name="gender" value="male">male</font>
+                                <font size="+2"><input type="radio" Id="female" name="gender" value="female">female</font>
+                                <font size="+2"><input type="radio" Id="other" name="gender" value="other">other</font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <font size="+3">Country:</font>
+                            </td>
+                            <td><select Id="countryname"><option value="0" >Select country</option>
+<option value="1">India</option>
+<option value="2">China</option>
+<option value="3">Srilanka</option>
+<option value="4">Nepal</option>
+
+<tr><td><font size="+3">State:</font></td>
+<td><select Id="statename"><option value="0">Select state</option>
+<option value="1">Karnataka</option>
+<option value="2">Goa</option>
+<option value="3">Kerla</option>
+<option value="4">Tamilnadu</option>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td></td>
+<td><input type="submit" value="Submit"  
+    style="height:40px;width:100px;background-color:lightblue" onclick="return validate();"/></td>
+</tr>
+</form>
+</table>
+</div>
+</div>
+<script>
+function validate()
+{
+	debugger;
+	var name=document.getElementById('username').value;
+	var namepattern=/^[a-zA-Z ]*$/;
+	if(name == '')
+	{
+	alert("Enter username");
+	false;
+	}
+	if(!namepattern.test(name))
+	{
+	alert("username is invalid");
+	false;
+	}
+	
+	var lname=document.getElementById('lastname').value;
+	var lnamepattern=/^[a-zA-Z ]*$/;
+	if(lname == '')
+	{
+	alert("Enter lastname");
+	false;
+	}
+	if(!lnamepattern.test(lname))
+	{
+	alert("lastname is invalid");
+	false;
+	}
+	
+	var phone=document.getElementById('PhoneNumber').value;
+		var phonepattern=/^\(?([6-9]{1})\)?([0-9]{9})$/;
+		if(phone == '')
+		{
+			alert("Enter Phone number");
+			return false;
+		}
+		if(!phonepattern.test(phone))
+		{
+			alert("Invalid phone number");
+			return false;
+		}
+	
+	var email=document.getElementById('mail').value;
+		var emailpattern=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+		if(email == '')
+		{
+			alert("Enter e-mail");
+			return false;
+		}
+		if(!emailpattern.test(email))
+		{
+			alert("Invalid e-mail");
+			return false;
+		}
+		
+	var psw=document.getElementById('password').value;
+	if(psw=='')
+	{
+	alert("Enter the password");
+	return false;
+	}
+	var cpsw=document.getElementById('confirm_password').value;
+	if(cpsw=='')
+	{
+	alert("Enter the confirm password");
+	return false;
+	}
+	if(cpsw!=psw)
+	{
+	alert("password not matched");
+	return false;
+	}
+		
+	var radio1=document.getElementById('male').checked;
+	var radio2=document.getElementById('female').checked;
+	var radio3=document.getElementById('other').checked;
+		if((radio1=="")&&(radio2=="")&&(radio3==""))
+		{
+		alert("select any one gender");
+		return false;
+		}
+		
+		var e=document.getElementById("countryname");
+		var strUser=e.options[e.selectedIndex].value;
+		var strUser1=e.options[e.selectedIndex].text;
+		if(strUser==0)
+		{
+		alert("Select country");
+		return false;
+		}
+		
+		var s=document.getElementById("statename");
+		var strUser=s.options[s.selectedIndex].value;
+		var strUser1=s.options[s.selectedIndex].text;
+		if(strUser==0)
+		{
+		alert("Select state");
+		return false;
+		}
+}
+</script>
+
+</body>
+</html>
